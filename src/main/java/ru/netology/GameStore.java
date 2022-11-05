@@ -8,6 +8,9 @@ import java.util.Map;
 public class GameStore {
     private List<Game> games = new ArrayList<>();
 
+    public Map<String, Integer> getPlayedTime() {
+        return playedTime;
+    }
     /**
      * Информация о том, какой игрок сколько играл в игры этого каталога
      * Ключ - имя игрока
