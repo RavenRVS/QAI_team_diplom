@@ -2,6 +2,7 @@ package ru.netology;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Player {
     private String name;
@@ -57,6 +58,17 @@ public class Player {
     /** Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
      Если в игры этого жанра не играли, возвращается null */
     public Game mostPlayerByGenre(String genre) {
-        return null;
+        int mostTime = 1;
+        Game bestGame = null;
+        for (Game game : playedTime.keySet()) {
+            if (Objects.equals(game.getGenre(), genre)) {
+                int playTime = playedTime.get(game);
+                if (playTime > mostTime) {
+                    mostTime = playTime;
+                    bestGame = game;
+                }
+            }
+        }
+        return bestGame;
     }
 }
