@@ -36,7 +36,7 @@ public class Player {
         if (playedTime.containsKey(game)) {
             playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            playedTime.put(game, hours);
+            throw new AlreadyExistsException("Game: " + game.getTitle() + " not already install");
         }
         return playedTime.get(game);
     }
